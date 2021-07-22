@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;	
+		}
+
+		body{}
+		label {
+			color: white;
+			font-weight: 600;
+			font-size: 20px;
+			
+		}
+		.container {
+			width: 21%;
+		    border: 3px solid;
+		    border-color: white;
+		    margin-top: 20px;
+		    border-radius: 5px;
+		    padding: 15px;
+		    margin-left: 20px;
+		    background-color:darkcyan;
+		}
+		input[type=text], input[type=email], input[type=password], input[type=url]{
+			margin: 10px 0px;
+			padding: 10px;
+			border: 2px solid  white;
+			border-radius: 5px;
+			padding-left: 40px;
+			width: 90%;
+			color: #000;
+			
+		}
+		input[type=submit]{
+			margin-top: 10px;
+			padding: 10px;
+			color: black;
+			border: 2px solid white;
+			border-radius: 5px;
+
+		}
+		span{
+			color:red;
+		}
+			
+		.main {
+			display:flex;
+		}
+
+		.tabb{
+			width: 77%;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+	<div class="container">
+	
+		<label>First Name :</label>
+		<input type="text" name="fistname" id="first-name" placeholder="Enter First Name">
+		<span id="s-fname"></span>
+
+		<br><label>Last Name :</label>
+		<input type="text" name="lastname" id="last-name" placeholder="Enter Last Name">
+		<span id="s-lname"></span>
+
+
+		<br><label>Email :</label>
+		<input type="email" name="email" id="email" placeholder="Entre Email">
+		<span id="s-email"></span>
+
+
+
+		<br><label>URL :</label>
+		<input type="url" name="url" id="url" placeholder="Enter URL">
+		<span id="s-url"></span>
+
+		<!-- <br><label>State :</label>
+		<input type="text" name="state" id="state" placeholder="Enter State">
+		<span id="s-state"></span>
+
+
+		<br><label>City :</label>
+		<input type="text" name="city" id="city" placeholder="Enter City">
+		<span id="s-city"></span>
+ -->
+
+		<br><label>Contact Number :</label>
+		<input type="text" name="Contactnumber" id="contactnumber" placeholder="Enter Mobile Number">
+		<span id="s-contact"></span>
+
+
+		<br><label>Username :</label>
+		<input type="text" name="username" id="username" placeholder="Enter Username">
+		<span id="s-username"></span>
+
+
+		<br><label>Password :</label>
+		<input type="Password" name="Password" id="pass" placeholder="Enter Password">
+		<span id="s-password"></span>
+
+
+		<br><label>Confirm Password :</label>
+		<input type="password" name="con-password" id="conpassword" placeholder="Confirm Password">
+		<span id="s-conpass"></span>
+
+		<br><input type="submit" name="" value="Submit" onclick="add_element_to_array()" id="submit" class="btn btn-success">
+		<input type="submit" name="" value="Show" onclick="display_array()" class="btn btn-warning">
+		
+		<input type="hidden" name="" id="index" >
+	
+</div>
+<div class="tabb">
+	<table class="table table-hover" id="tab"></table>
+</div>
+</div>
+<script type="text/javascript">
+		var firstarray=Array();
+ 	 	var secondarray=Array();
+ 	 	var a=0;
+ 	 	var data="";
+
+		 function add_element_to_array() {
+
+       var firstname=document.getElementById('first-name').value;
+       var lastname=document.getElementById('last-name').value;
+       var email=document.getElementById('email').value;
+       var url=document.getElementById('url').value;
+       // var state=document.getElementById('state').value;
+       // var city=document.getElementById('city').value;
+       var contact=document.getElementById('contactnumber').value;
+       var username=document.getElementById('username').value;
+       var pass=document.getElementById('pass').value;
+       var confirmpass=document.getElementById('conpassword').value;
+       
+
+       	 var condition1 = /^[A-Z]+[a-z]{2,20}$/;
+         var f= firstname.match(condition1);
+          if (f && firstname!=null) 
+         {
+	         secondarray[a] = firstname;
+	         a++;
+	         document.getElementById("first-name").value = "";
+	         document.getElementById("s-fname").innerHTML="";
+         }
+        else 
+          {
+            document.getElementById("s-fname").innerHTML="*please Enter Valid Character*";
+            
+          }
+
+       	 var condition2 = /^[A-Z]+[a-z]{2,20}$/;
+         var ln= lastname.match(condition2);
+          if (ln && lastname!=null) 
+          {
+	         secondarray[a] = lastname;
+	         a++;
+	         document.getElementById("last-name").value = "";
+	         document.getElementById("s-lname").innerHTML="";
+         }
+        else 
+          {
+            document.getElementById("s-lname").innerHTML="*please Enter Valid Character*";
+            
+          }
+
+        var condition3 = /^[a-z]+[0-9]+[@][a-z.a-z]{2,25}$/;
+        var em= email.match(condition3);
+          if (em && email!=null) 
+          {
+	         secondarray[a] = email;
+	         a++;
+	         document.getElementById("email").value = "";
+	         document.getElementById("s-email").innerHTML="";
+         }
+        else 
+          {
+            document.getElementById("s-email").innerHTML="*please Enter Valid Email*";
+            
+          }
+
+        var condition4 = /^[a-z]{2,20}$/;
+        var ur= url.match(condition4);
+          if (ur && url!=null) 
+          {
+	         secondarray[a] = url;
+	         a++;
+	         document.getElementById("url").value = "";
+	         document.getElementById("s-url").innerHTML="";
+         }
+        else 
+          {
+            document.getElementById("s-url").innerHTML="*please Enter Valid URL*";
+            
+          }
+
+        // var condition5 = /^[A-Z]+[a-z]{2,20}$/;
+        // var st= state.match(condition5);
+        //   if (st && state!=null) 
+        //   {
+	       //   secondarray[a] = state;
+	       //   a++;
+	       //   document.getElementById("state").value = "";
+	       //   document.getElementById("s-state").innerHTML="";
+        //  }
+        // else 
+        //   {
+        //     document.getElementById("s-state").innerHTML="*please Enter Valid Character*";
+            
+        //   }
+
+        // var condition6 = /^[A-Z]+[a-z]{2,20}$/;
+        // var cit= city.match(condition6);
+        //   if (cit && city!=null) 
+        //   {
+	       //   secondarray[a] = city;
+	       //   a++;
+	       //   document.getElementById("city").value = "";
+	       //   document.getElementById("s-city").innerHTML="";
+        //  }
+        // else 
+        //   {
+        //     document.getElementById("s-city").innerHTML="*please Enter Valid Character*";
+            
+        //   }
+
+        var condition7 = /^[0-9]{2,14}$/;
+        var con= contact.match(condition7);
+          if (con && contact!=null) 
+          {
+	         secondarray[a] = contact;
+	         a++;
+	         document.getElementById("contactnumber").value = "";
+	         document.getElementById("s-contact").innerHTML="";
+         }
+        else 
+          {
+            document.getElementById("s-contact").innerHTML="*please Enter Valid Number*";
+            
+          }
+
+        var condition8 = /^[A-Z]+[a-z]+[_]+[a-z]{2,20}$/;
+        var un= username.match(condition8);
+          if (un && username!=null) 
+          {
+	         secondarray[a] = username;
+	         a++;
+	         document.getElementById("username").value = "";
+	         document.getElementById("s-username").innerHTML="";
+         }
+        else 
+          {
+            document.getElementById("s-username").innerHTML="*please Enter Valid Password*";
+            
+          }
+
+       var condition9=/^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%&*])[a-zA-Z0-9!@#$%^&*]{6,20}$/;
+         var f= pass.match(condition9);
+           if(f==null)
+           {
+            document.getElementById("s-password").innerHTML="please Enter Valid Password"
+          }else
+          {
+          document.getElementById("s-password").innerHTML=" ";  
+          }
+          
+           if (f==confirmpass) 
+          {
+            secondarray[a]= pass;
+             a++;
+            secondarray[a]= confirmpass;
+            a++
+             document.getElementById("conpassword").value = "";
+             document.getElementById("s-conpass").innerHTML=" ";
+             document.getElementById("pass").value = "";
+             
+          }
+        
+        else 
+          {
+            document.getElementById("s-conpass").innerHTML="*please Enter Same Password*";
+            
+          }
+
+          firstarray.push(secondarray);
+
+            }
+
+         function display_array()
+          {  
+
+              var headingData =' <tr><th>FirstName</th><th>LastName</th><th>Email</th><th>URL</th><th>MobileNo</th><th>UserName</th><th>Password</th><th>CPassword</th><th>Edit</th><th>Delete</th></tr>';
+                  var tableData = '';
+                      tableData += "<tr>";
+                       for(var i=0;i<firstarray.length;i++)
+                          {
+                          	console.log(i);
+                            for(var j=0;j<secondarray.length;j++)
+                            {
+                          	console.log(j);
+                               tableData += "<td>"+firstarray[i][j]+"</td>"; 
+                            }
+                              tableData+="<td><button onclick='edit("+i+")' class='btn btn-primary'>Edit</button></td><td><button onclick='del("+i+")' class='btn btn-danger' >Delete</button></td>";
+                                 tableData += "</tr>";
+                          }   
+                     
+                      var finalTable = "<table>"+headingData+tableData+"</table>"; 
+
+                      document.getElementById("tab").innerHTML=finalTable;
+          }
+
+       
+
+</script>
+	
+</body>
+</html>

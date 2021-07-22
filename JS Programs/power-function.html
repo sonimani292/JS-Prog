@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Power Function</title>
+</head>
+
+<style type="text/css">
+			*{
+				background: #009999;
+				margin:0px;
+				padding: 0px;
+			}
+			 .maindiv{
+		 		height: 200px;
+				width: 25%;
+				background-color: rgba(0,0,0,0.4);
+				position: relative;
+				top: 200px;
+				left: 40%;
+				padding: 40px;
+				border:3px;
+				border-color: black;
+		 }
+			 label{
+				font-size: 25px;
+				background-color: transparent;
+				color: #fff;
+			 }
+
+			 input[type=text]{
+				width: 350px;
+				height: 40px;
+				margin-top: 30px;
+				font-size: 20px;
+				border:none;
+			}
+			 input[type=submit]{
+				width: 100px;
+				padding: 13px;
+				background-color: #FF6666;
+				border:3px;
+				border-color:black; 
+			}
+
+	
+</style>
+<body>
+			<div id="maindiv">
+
+				<label>Enter Base:</label>
+				<input type="text" id="base" name="Base" placeholder="Enter Number"><br>
+
+				<label>Enter Exponent:</label>
+				<input type="text" id="expo" name="Exponent"  placeholder="Enter Number"><br>
+
+				<input type="submit" name="" ondblclick="Power()" value="Power"><br>
+
+				<input type="text" id="answer"name="" placeholder="Output">
+
+			</div>
+			<script type="text/javascript">
+				function Power(){
+					var base = document.getElementById('base').value;
+					var exp = document.getElementById('expo').value;
+
+					var result = Math.pow(base, exp);
+					document.getElementById('answer').value = result;
+				}
+				
+			</script>
+</body>
+</html>

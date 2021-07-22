@@ -1,0 +1,73 @@
+<html>   
+<head>   
+    <title> Calculate days between dates </title>   
+     
+</head>    
+<style type="text/css">
+           *{
+                background: #009999;
+                margin:0px;
+                padding: 0px;
+            }
+
+    p {
+        margin-top: 2%;
+      
+    }
+
+</style>
+<body>   
+            
+            <p align="Center"> <b> Enter First date </b>   
+                    <input type="date" id="first-date">   
+                    <br> <br>   
+                      
+                    <p align="Center"> <b> Enter Second date </b>   
+                    <input type="date" id="second-date">   
+                    <br> <br>       
+                
+                    <button onclick="daysDifference()"> Calculate number of days </button>   
+            </p>   
+            
+                 <h3 style="color:black" id="result" align="center"></h3>   
+
+       
+
+     <script>  
+       function daysDifference() {  
+         
+         var date1 = document.getElementById("first-date").value;  
+         var date2 = document.getElementById("second-date").value;  
+   
+         var dat1 = new Date(date1);  
+         var dat2 = new Date(date2);  
+   
+        
+         var time_diff = dat2.getTime() - dat1.getTime();  
+  
+         //calculate days difference by dividing total milliseconds in a day  
+         var result = time_diff / (1000 * 60 * 60 * 24);  
+  
+        document.getElementById("result").innerHTML = result + " days between both dates. ";  
+                    }  
+      </script>    
+    
+</body>    
+</html>  
+   
+
+  <!--     <div id="maindiv"> 
+            <label> Enter first date </label>
+            <input type="date" id="first-date">   
+            <br> <br>   
+              
+            <label><b> Enter second date</b></label>
+            <input type="date" id="second-date">   
+            <br> <br>       
+        
+            <button onclick="daysDifference()"> Calculate number of days  </button>   
+         </div>   
+    
+        <h3 style="color:32A80F" id="result" align="center"></h3>   
+     -->
+

@@ -1,0 +1,90 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+		*{
+			background: #009999;
+			margin:0px;
+			padding: 0px;
+		}
+			.main{
+			height: 200px;
+			width: 25%;
+			background-color: rgba(0,0,0,0.4);
+			position: relative;
+			top: 200px;
+			left: 37%;
+			padding: 40px;
+			border:3px;
+			border-color: black;
+		}
+		label{
+			font-size: 25px;
+			background-color: transparent;
+			color: #fff;
+		}
+
+		input[type=text]{
+			width: 350px;
+			height: 40px;
+			margin-top: 30px;
+			font-size: 20px;
+			border:none;
+		}
+
+		input[type=submit]{
+			width: 100px;
+			padding: 13px;
+			background-color: #FF6666;
+			border:3px;
+			border-color:black; 
+
+		}
+</style>
+<body >
+		 	<div class="main">
+				 <label>Number/String:</label><br>
+				 <input type="text" id="first-str" name="first-str"  placeholder="Enter any String">
+				  
+				 <input type="submit" name="" onclick="unique_char()" value="UniqueChar">
+				 <br>
+				 <input type="text" name="" id="result" placeholder="OUTPUT">
+				
+		  </div>
+		  	<script type="text/javascript">
+				
+				function unique_char() 
+					{
+						var str = document.getElementById('first-str').value;
+						var unique = '';
+						 for(var i = 0; i < str.length; i++){
+
+						    if(unique.includes(str[i]) === false){						   
+						      unique += str[i]
+						    }
+						  }
+						 document.getElementById('result').value = unique;
+					}					
+
+						
+					    
+					//     var count = 0;
+					//     for (var i = 0; i < str.length; i++) {
+					//         for (var j = i+1; j < str.length; j++) {
+					//             if (str[i] == str[j]) 
+					//             {
+					//                 count++;
+					//                 unique += str[i];
+					//             }
+					//         }
+					//     }
+					//    	document.getElementById('result').value = unique;
+					// }
+			
+			</script>
+</body>
+</html>

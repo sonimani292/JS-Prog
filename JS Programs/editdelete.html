@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <title> Edit Delete Form</title>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	 <style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;	
+		}
+
+		body{}
+		label {
+			color: white;
+			font-weight: 600;
+			font-size: 20px;
+			
+		}
+		.container {
+			width: 21%;
+		    border: 3px solid;
+		    border-color: white;
+		    margin-top: 20px;
+		    border-radius: 5px;
+		    padding: 15px;
+		    margin-left: 20px;
+		    background-color:darkcyan;
+		}
+		input[type=text], input[type=email], input[type=password], input[type=url]{
+			margin: 10px 0px;
+			padding: 10px;
+			border: 2px solid  white;
+			border-radius: 5px;
+			padding-left: 40px;
+			width: 90%;
+			color: #000;
+			
+		}
+		input[type=submit]{
+			margin-top: 10px;
+			padding: 10px;
+			color: black;
+			border: 2px solid white;
+			border-radius: 5px;
+
+		}
+		span{
+			color:red;
+		}
+			
+		.main {
+			display:flex;
+		}
+
+		.tabb{
+			width: 77%;
+		}
+		select[multiple], select[size] {
+		    width: 150px;
+			height: 35px;
+			border: none;
+			margin-left: 5px;
+		}
+
+	</style>
+</head>
+<body >
+	<div class="main">
+	<div class="container">
+	
+		<label>First Name :</label>
+		<input type="text" name="fistname" id="first-name" placeholder="Enter First Name">
+		<span id="s-fname"></span>
+
+		<br><label>Last Name :</label>
+		<input type="text" name="lastname" id="last-name" placeholder="Enter Last Name">
+		<span id="s-lname"></span>
+
+
+		<br><label>Email :</label>
+		<input type="email" name="email" id="email" placeholder="Entre Email">
+		<span id="s-email"></span>
+
+
+
+		<br><label>URL :</label>
+		<input type="url" name="url" id="url" placeholder="Enter URL">
+		<span id="s-url"></span>
+
+		
+
+		<br><label>Contact Number :</label>
+		<input type="text" name="Contactnumber" id="contactnumber" placeholder="Enter Mobile Number">
+		<span id="s-contact"></span>
+
+
+		<br><label>Username :</label>
+		<input type="text" name="username" id="username" placeholder="Enter Username">
+		<span id="s-username"></span>
+
+
+		<br><label>Password :</label>
+		<input type="Password" name="Password" id="pass" placeholder="Enter Password">
+		<span id="s-password"></span>
+
+
+		<br><label>Confirm Password :</label>
+		<input type="password" name="con-password" id="conpassword" placeholder="Confirm Password">
+		<span id="s-conpass"></span>
+
+		<br><input type="submit" name="" value="Submit" onclick="add_element_to_array()" id="submit" class="btn btn-success">
+			<input type="submit" name="" value="Show" onclick="display_array()" class="btn btn-warning">
+		
+			<input type="hidden" name="" id="index" >
+	
+	</div>
+	<div class="tabb">
+		<table class="table table-hover" id="tab"></table>
+	</div>
+	</div>
+	<script type="text/javascript">
+		var firstarray=Array();
+ 	 	var secondarray=Array();
+ 	 	var a=0;
+ 	 	var data="";
+ 	 
+		  function add_element_to_array() {
+      
+			       var firstname=document.getElementById('first-name').value;
+			       var lastname=document.getElementById('last-name').value;
+			       var email=document.getElementById('email').value;
+			       var url=document.getElementById('url').value;
+			       var contact=document.getElementById('contactnumber').value;
+			       var username=document.getElementById('username').value;
+			       var pass=document.getElementById('pass').value;
+			       var confirmpass=document.getElementById('conpassword').value;
+			       var index=document.getElementById("index").value;
+			       
+			  	 secondarray=[firstname,lastname,email,url,contact,username,pass,confirmpass];
+			   
+			    if(data==""||data==undefined)
+			    {
+			    		firstarray.push(secondarray);
+				}
+				else
+				{
+						firstarray[index]=secondarray;
+				}
+
+			    document.getElementById("first-name").value="";
+				document.getElementById("last-name").value="";
+				document.getElementById("email").value="";
+				document.getElementById("url").value ="";
+				document.getElementById("contactnumber").value="";
+				document.getElementById("username").value="";
+				document.getElementById("pass").value ="";
+				document.getElementById("conpassword").value="";
+	
+       			document.getElementById("submit").value="Submit";
+             }
+
+          function display_array()
+          {  
+
+              var headingData =' <tr><th>FirstName</th><th>LastName</th><th>Email</th><th>URL</th><th>MobileNo</th><th>UserName</th><th>Password</th><th>CPassword</th></th><th>Edit</th><th>Delete</th></tr>';
+                  var tableData = '';
+                      tableData += "<tr>";
+                       for(var i=0;i<firstarray.length;i++)
+                          {
+                          	console.log(i);
+                            for(var j=0;j<secondarray.length;j++)
+                            {
+                          	console.log(j);
+                               tableData += "<td>"+firstarray[i][j]+"</td>"; 
+                            }
+                              tableData+="<td><button onclick='edit("+i+")' class='btn btn-primary'>Edit</button></td><td><button onclick='del("+i+")' class='btn btn-danger' >Delete</button></td>";
+                                 tableData += "</tr>";
+                          }   
+                     
+                      var finalTable = "<table>"+headingData+tableData+"</table>"; 
+
+                      document.getElementById("tab").innerHTML=finalTable;
+          }
+
+			function edit(i) {
+
+			            data=firstarray[i];
+			            document.getElementById("first-name").value =data[0];
+			           	document.getElementById("last-name").value =data[1];
+			            document.getElementById("email").value =data[2];
+			            document.getElementById("url").value =data[3];
+			            document.getElementById("contactnumber").value =data[4];
+			            document.getElementById("username").value =data[5];
+			            document.getElementById("pass").value =data[6];
+			          	document.getElementById("conpassword").value =data[7];
+
+			          	document.getElementById("index").value=i;
+			          	document.getElementById("submit").value="Update";
+			             }
+
+			function del(i){
+			            firstarray.splice(i,1);
+			            display_array();
+			          } 
+
+	</script>
+
+</body>
+</html>

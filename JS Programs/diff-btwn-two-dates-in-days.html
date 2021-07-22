@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>diff days</title>
+</head>
+
+<style type="text/css">
+			*{
+				background: #009999;
+				margin:0px;
+				padding: 0px;
+			}
+			 .maindiv{
+		 		height: 200px;
+				width: 25%;
+				background-color: rgba(0,0,0,0.4);
+				position: relative;
+				top: 200px;
+				left: 40%;
+				padding: 40px;
+				border:3px;
+				border-color: black;
+		 }
+			 label{
+				font-size: 25px;
+				background-color: transparent;
+				color: #fff;
+			 }
+
+			 input[type=text]{
+				width: 350px;
+				height: 40px;
+				margin-top: 30px;
+				font-size: 20px;
+				border:none;
+			}
+			 input[type=submit]{
+				width: 100px;
+				padding: 13px;
+				background-color: #FF6666;
+				border:3px;
+				border-color:black; 
+			}
+
+	
+</style>
+<body>
+			<div id="maindiv">
+
+				<label>First Date</label>
+				<input type="date" id="first-date" name="first-date" value ="Enter Date"><br>
+
+				<label>Second Date:</label>
+				<input type="date" id="Second-date" name="Second-date"  value ="Enter Date"><br>
+
+				<input type="submit" name="" ondblclick="diffDay()" value="Find Days"><br>
+
+				<input type="text" id="answer" name="" placeholder="Output">
+
+			</div>
+			<script type="text/javascript">
+				function diffDay(){
+					var first = document.getElementById('first-date').value;
+					var second = document.getElementById('Second-date').value;
+					 
+				
+					var Diff_In_Time = second.getTime() - first.getTime();     //calculate the time
+					 
+					var Diff_In_Days = Diff_In_Time / (1000 * 3600 * 24);  //calculate the no of days
+					 
+					 //final no. of days (result)
+					var totaldays= document.write("number of days between dates<br>" 
+							+ first + "<br> and <br>"
+							+ second + " is: <br> "
+							+ Diff_In_Days);
+									}
+
+					document.getElementById('answer').value = totaldays;
+				
+			</script>
+</body>
+</html>
+
+<!-- 
+					// To set two dates to two variables
+					// var date1 = new Date("06/30/2019");
+					// var date2 = new Date("07/30/2019"); -->

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>simple form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    select{
+      margin:10px 0px;
+    }
+  </style>
+</head>
+<body  onload="resetSelection();">
+
+ <div class="container">
+          <h2> form</h2>
+         
+          <div class="form-group">
+                <label for="Name">name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+          </div>
+          <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+          </div>
+          <select id="countrySelect" size="1" onchange="makeSubmenu(this.value)">
+                       <option value="" disabled selected>Choose State</option>
+                       <option>MP</option>
+                       <option>Maharashtra</option>
+                       <option>Rajasthan</option>
+          </select>
+                  
+          <select id="citySelect" size="1" >
+                       <option value="" disabled selected>Choose City</option>
+                       <option value="">Select State first</option>
+          </select>
+           <br>
+          <button onclick="add_element_to_array();" id="save-btn"  class="btn btn-warning">Save </button>
+          <button onclick="display_array();" id="show-btn" class="btn btn-danger">Show </button>
+                 
+          </div>
+           
+          <table class="table table-bordered" id="tab">
+          </table>
+    
+ 
+</div>
+<script type="text/javascript">
+        var firstarray=Array();
+        var secondarray=Array();
+        var check=Array();
+        var citiesByState = 
+              {
+                MP: ["Indore","Mhow","Dewas"],
+                Maharashtra: ["Mumbai","Pune","Nagpur"],
+                Rajasthan: ["Ajmer","Bikaner"]
+              }
+
+          function resetSelection()
+          {
+              document.getElementById("countrySelect").selectedIndex = 0;
+              document.getElementById("citySelect").selectedIndex = 0;
+          }
+
+          function makeSubmenu(value) 
+          {
+              if(value.length == 0) 
+                 document.getElementById("citySelect").innerHTML = "<option>select City</option>";
+              else {
+                    var citiesOptions = " ";
+                    for(cityId in citiesByState[value])
+                    {
+                       citiesOptions=citiesOptions+"<option>"+citiesByState[value][cityId]+"</option>";
+                    }
+                    document.getElementById("citySelect").innerHTML = citiesOptions;
+              }
+          }
+
+          function add_element_to_array() {
+              
+               var name=document.getElementById('name').value;
+               var email=document.getElementById('email').value;
+               var countrySelect=document.getElementById('countrySelect').value;
+               var citySelect=document.getElementById('citySelect').value;
+
+                 secondarray=[name,email,countrySelect,citySelect];
+                  check=secondarray;
+                  firstarray.push(secondarray);
+
+               document.getElementById('name').value="";
+               document.getElementById('email').value="";
+               document.getElementById('countrySelect').value="";
+               document.getElementById('citySelect').value="";
+                 
+          }
+
+           function display_array()
+          {  
+                    var headingData =' <tr><th>Name</th><th>email</th><th>State</th><th>City</th></tr>';
+                        var tableData = '';
+                            tableData += "<tr>";
+                             for(var i=0;i<firstarray.length;i++)
+                                {
+                                  for(var j=0;j<check.length;j++)
+                                  {
+                                     tableData += "<td>"+firstarray[i][j]+"</td>"; 
+                                  }
+                                    
+                                       tableData += "</tr>";
+                                }   
+                           
+                            var finalTable = "<table>"+headingData+tableData+"</table>"; 
+
+                            document.getElementById("tab").innerHTML=finalTable;
+          }
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

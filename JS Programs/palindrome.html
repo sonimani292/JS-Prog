@@ -1,0 +1,75 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+		*{
+			background: lightblue;
+			margin:0px;
+			padding: 0px;
+		}
+
+		label{
+			font-size: 25px;
+			background-color: transparent;
+			color: #fff;
+		}
+
+		input[type=submit]{
+			width: 100px;
+			padding: 10px;
+			background-color: orange;
+			border:none;
+		}
+
+		input[type=text]{
+			width: 400px;
+			height: 33px;
+			margin-top: 30px;
+			font-size: 20px;
+			border:none;
+		}
+		.main{
+			height: 200px;
+			width: 30%;
+			background-color: rgba(0,0,0,0.4);
+			position: relative;
+			top: 200px;
+			left: 37%;
+			padding: 40px;
+		}
+
+</style>
+<body >
+		 	<div class="main">
+				 <label>Number/String:</label><br>
+				 <input type="text" id="first-num" name="first-num"  placeholder="Enter any String or Number">
+				  
+				 <input type="submit" name="" onclick="palindrome()" value="palindrome">
+				 <br>
+				 <input type="text" name="" id="result" placeholder="OUTPUT">
+				
+		  </div>
+		  	<script type="text/javascript">
+				
+				function palindrome() {
+				var first=document.getElementById('first-num').value;
+				var str=first;
+				
+				var check = first.split("").reverse().join("");
+				if(check==str)
+				{
+				document.getElementById('result').value="palindrome";
+				}
+				else
+				{
+				document.getElementById('result').value="Not Palindrome";
+					}
+
+				}
+			</script>
+</body>
+</html>

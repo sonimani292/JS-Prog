@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		*{
+			background: black;
+		}
+		body{
+			width: 100%;
+			max-width: 258px;
+			margin: 16% 45%;
+		}
+
+		#heading{
+			font-size: 17px;
+			text-align: center;
+		}
+		
+		.calculation{
+			border-radius: 4px;
+			border: 2px solid white;
+
+			padding: 13px;
+		}
+
+		label{
+			color: white;
+		}
+		input[type=text]{
+			border-color: white;
+			color: white;
+			border-radius: 12px;
+			height: 22px;
+			margin: 10px;
+		}
+
+		input[type=submit]{
+			border-color: white;
+			color: white;
+			border-radius: 12px;
+			height: 32px;
+			width: 78px;
+			margin: 9px;
+		}
+
+	</style>
+	<script type="text/javascript">
+		function multiply(){
+			var first_no=document.getElementById("first_no").value;
+			var Sec_no=document.getElementById("Sec_no").value;
+			
+			document.getElementById("result").value = first_no * Sec_no;
+		}
+
+		function division(){
+			var first_no=document.getElementById("first_no").value;
+			var Sec_no=document.getElementById("Sec_no").value;
+			
+			document.getElementById("result").value = first_no / Sec_no;
+		}
+	</script>
+</head>
+<body>
+	<div class="main">
+		<div class="grid">
+			<center><label id="heading">Division and Multiplication</label></center>
+				<div class="calculation">
+					<label>Input First Number</label> 
+					<input type="text" id="first_no" placeholder="12">
+					<label>Input Second Number</label> 
+					<input type="text" id="Sec_no" placeholder="15">
+					<label>Resultant Box</label> 
+					<input type="text" id="result" readonly>
+					<input type="submit"  value="Multiply" onclick="multiply()">
+					<input type="submit"  value="Division" onclick="division()">
+				</div>
+		</div>
+	</div>
+</body>
+</html>

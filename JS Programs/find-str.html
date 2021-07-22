@@ -1,0 +1,88 @@
+<html>   
+<head>   
+    <title> Calculate days between dates </title>   
+     
+</head>    
+<style type="text/css">
+           *{
+                background: #009999;
+                margin:0px;
+                padding: 0px;
+            }
+
+    p {
+        margin-top: 1%; 
+    }
+    input[type=text]{
+            width: 350px;
+            height: 40px;
+            margin-top: 30px;
+            font-size: 20px;
+            border:2px;
+            border-color: black;
+
+        }
+    button {
+                width: 200px;
+                padding: 13px;
+                background-color: #FF6666;
+                border:3px;
+                border-color:black; 
+    }
+
+</style>
+<body>   
+            
+            <p align="Center"> <b> Any String </b>   
+                    <input type="text" id="first-str" name="first-str" placeholder="Enter any String">   
+                    <br>   
+                      
+                    <p align="Center"> <b> String to be Find </b>
+                    <input type="text" id="second-str" name="first-str" placeholder="Enter any String">   
+                    <br> <br>   
+                    
+                    <button onclick="findstr()">find a word within a string </button>   
+            </p>   
+            
+                 <h3 style="color:black" id="result" align="center"></h3>   
+
+       
+
+     <script>  
+               function findstr()
+                {  
+                     var text = document.getElementById('first-str').value;
+                     var word = document.getElementById('second-str').value;
+
+                        var x = 0, y=0;
+                       
+                        for (i=0; i< text.length; i++)
+                            {
+                            if(text[i] == word[0])
+                                {
+                                for(j=i; j< i+word.length; j++)
+                                   {
+                                    if(text[j] == word[j-i])
+                                      {
+                                        y++;
+                                      }
+                                    if (y == word.length)
+                                    {
+                                        x++;
+                                    }
+                                }
+                                y=0;
+                            }
+                        }
+                        var final = "'"+word+"' was found "+x+" times.";
+                        document.getElementById('result').innerHTML = final;
+                }
+
+      </script>    
+    
+</body>    
+</html>  
+
+   
+
+

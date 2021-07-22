@@ -1,0 +1,82 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+		*{
+			background: #009999;
+			margin:0px;
+			padding: 0px;
+		}
+
+		label{
+			font-size: 25px;
+			background-color: transparent;
+			color: #fff;
+		}
+
+		input[type=submit]{
+			width: 100px;
+			padding: 13px;
+			background-color: #FF6666;
+			border:3px;
+			border-color:black; 
+
+		}
+
+		input[type=text]{
+			width: 350px;
+			height: 40px;
+			margin-top: 30px;
+			font-size: 20px;
+			border:none;
+		}
+		.main{
+			height: 200px;
+			width: 25%;
+			background-color: rgba(0,0,0,0.4);
+			position: relative;
+			top: 200px;
+			left: 37%;
+			padding: 40px;
+			border:3px;
+			border-color: black;
+		}
+
+</style>
+<body >
+		 	<div class="main">
+				 <label>Number/String/boolean:</label><br>
+				 <input type="text" id="first-str" name="first-str"  placeholder="Enter anything">
+				  
+				 <input type="submit" name="" onclick="type_of_argu()" value="type_of_argu">
+				 <br>
+				 <input type="text" name="" id="result" placeholder="Output">
+				
+		  </div>
+		  	<script type="text/javascript">
+				
+				function type_of_argu() 
+					{
+						
+						var dtypes = [Function, RegExp, Number, String, Boolean, Object];
+						var x, len;
+						if (typeof value === "object" || typeof value === "function") 
+						    {
+						     for (x = 0, len = dtypes.length; x < len; x++) 
+						     {
+						            if (value instanceof dtypes[x])
+						            {
+						                return dtypes[x];
+						            }
+						      }
+						    }
+						    return document.getElementById('result').value = typeof value;
+				   }
+			
+			</script>
+</body>
+</html>

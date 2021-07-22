@@ -1,0 +1,100 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+		*{
+			background: lightblue;
+			margin:0px;
+			padding: 0px;
+		}
+
+		label{
+			font-size: 25px;
+			background-color: transparent;
+			color: #fff;
+		}
+
+		input[type=submit]{
+			width: 100px;
+			padding: 10px;
+			background-color: orange;
+			margin-top: 10px;
+		}
+
+		input[type=text]{
+			width: 200px;
+			height: 33px;
+			margin-top: 30px;
+			font-size: 20px;
+		
+			border:none;
+		}
+		.main{
+			height: 200px;
+			width: 30%;
+			background-color: rgba(0,0,0,0.4);
+			position: relative;
+			top: 200px;
+			padding: 40px;
+		}
+
+		.mainn{
+			height: 200px;
+			width: 30%;
+			background-color: rgba(0,0,0,0.4);
+			position: relative;
+			top: 200px;
+			padding: 40px;
+			margin-left: 30px;
+		}
+
+		.classflex {
+			display:inline-flex;
+		}
+
+</style>
+<body >
+		<center>	<div class="classflex">
+		 	<div class="main">
+				 <label>Celsius to Fahrenheit</label><br>
+				 <input type="text" id="first-num" name="first-num"  placeholder="Enter temprature">
+				  
+				 <input type="submit" name="" onclick="CtoF()" value="CelToFah">
+				 <br>
+				 <input type="text" name="" id="result" placeholder="OUTPUT">
+				
+		  </div> 
+		  	<div class="mainn">
+				 <label>Fahrenheit to Celsius  </label><br>
+				 <input type="text" id="second-num" name="second-num"  placeholder="Enter temprature">
+				  
+				 <input type="submit" name="" onclick="FtoC()" value="FahToCel">
+				 <br>
+				 <input type="text" name="" id="result2" placeholder="OUTPUT">
+				
+		  </div>
+		</div>
+	</center>
+		  	<script type="text/javascript">
+				
+				function CtoF() {
+
+					 var cTemp = document.getElementById('first-num').value;
+					 var cToFahr = cTemp * 9 / 5 + 32;
+					 var message = cTemp+'\xB0C is ' + cToFahr + ' \xB0F.';
+					 document.getElementById('result').value=message;
+					}
+
+				function FtoC(){
+					var fTemp = document.getElementById('second-num').value;;
+					 var fToCel = (fTemp - 32) * 5 / 9;
+					 var message = fTemp+'\xB0F is ' + fToCel + '\xB0C.';
+					  document.getElementById('result2').value=message;
+				}
+			</script>
+</body>
+</html>
